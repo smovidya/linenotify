@@ -1,5 +1,5 @@
 function getData() {
-  var sheetId = "1_fmkr1pqNMMHPxS6uSlksSSs3sj5SLKZGiGFn1uNJ1M";
+  var sheetId = "1X515mLf7AjlCb7FYqjj2zaswL2W51vlwSbRF9he9T88";
   var currentSheet = SpreadsheetApp.openById(sheetId).getSheetByName("Form Responses 1");
  
   var lastRow = currentSheet.getLastRow();
@@ -8,16 +8,16 @@ function getData() {
   Logger.log("Last Row :" + lastRow);
   Logger.log("Last Column :" + lastColumn);
 
-  var headerData = currentSheet.getRange("B1:E1").getValues()[0];
-  var lastRowData = currentSheet.getRange("B" + lastRow + ":E" + lastRow).getValues()[0];
+  var headerData = currentSheet.getRange("H1:I1").getValues()[0];
+  var lastRowData = currentSheet.getRange("H" + lastRow + ":I" + lastRow).getValues()[0];
  
   Logger.log("Header :" + headerData);
   Logger.log("Last Row Data :" + lastRowData);
  
   //set message
   var message = "\n\n" + "ชิบหายแล้วทุกคนนนน มีเรื่อง(ร้องเรียน)แล้วววววว วี้หว่อๆๆๆ🚨🚨" + "\n";
-    for (i = 0; i < lastColumn - 1; i++) {
-      message += "\n" + headerData[i] + " : " + lastRowData[i];
+    for (i = 0; i < headerData.length; i++) {
+      message += "\n\n" + headerData[i] + " : " + lastRowData[i];
     }
  
   Logger.log("Data Message :" + message);
@@ -31,7 +31,7 @@ function getData() {
 
 function sendMessage(message) {
   var lineNotifyEndPoint = "https://notify-api.line.me/api/notify";
-  var accessToken = "2vif0ZqmabP6AXeI9U6PzNUzgIW8T6eLgjaa3bFz4iG";
+  var accessToken = "PQoZb6glA8yexmbRL5tdLdx7PGDn4Q486LzF4gVWlND";
 
   var formData = {
     "message": message
