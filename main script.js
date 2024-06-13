@@ -16,17 +16,16 @@ function getData() {
  
   //set message
   var message = "\n\n" + "ชิบหายแล้วทุกคนนนน มีเรื่อง(ร้องเรียน)แล้วววววว วี้หว่อๆๆๆ🚨🚨" + "\n";
-    for (i = 0; i < headerData.length; i++) {
-      message += "\n\n" + headerData[i] + " : " + lastRowData[i];
-    }
+  for (var i = 0; i < headerData.length; i++) {
+    message += "\n\n" + headerData[i] + " : " + lastRowData[i];
+  }
  
   Logger.log("Data Message :" + message);
 
   //set line notify
   if (message !== "") {
-   sendMessage(message);
- }
- 
+    sendMessage(message);
+  }
 }
 
 function sendMessage(message) {
@@ -45,15 +44,21 @@ function sendMessage(message) {
 
   try {
     var response = UrlFetchApp.fetch(lineNotifyEndPoint, options);
-  }
-  
-  catch (error) {
+  } catch (error) {
     Logger.log(error.name + "：" + error.message);
     return;
   }
     
   if (response.getResponseCode() === 200) {
     Logger.log("Sending message completed.");
-  } 
+  }
+}
+
+function createTrigger() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  ScriptApp.newTrigger('getData')
+           .forSpreadsheet(sheet)
+           .onFormSubmit()
+           .create();
 
 }
