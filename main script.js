@@ -31,7 +31,7 @@ function getData() {
 
 function sendMessage(message) {
   var lineNotifyEndPoint = "https://notify-api.line.me/api/notify";
-  var accessToken = "PQoZb6glA8yexmbRL5tdLdx7PGDn4Q486LzF4gVWlND";
+  var accessToken = " **token** ";
 
   var formData = {
     "message": message
