@@ -15,9 +15,9 @@ function getData() {
   Logger.log("Last Row Data :" + lastRowData);
  
   //set message
-  var message = "\n\n" + "ชิบหายแล้วทุกคนนนน มีเรื่อง(ร้องเรียน)แล้วววววว วี้หว่อๆๆๆ🚨🚨" + "\n";
+  var message = "\n\n" + "ชิบหายแล้วทุกคนนนน มีเรื่อง(ร้องเรียน)แล้วววววว วี้หว่อๆๆๆ🚨🚨";
   for (var i = 0; i < headerData.length; i++) {
-    message += "\n\n" + headerData[i] + " : " + lastRowData[i];
+    message += "\n\n" + "📩" + headerData[i] + " : " + lastRowData[i];
   }
  
   Logger.log("Data Message :" + message);
@@ -30,10 +30,12 @@ function getData() {
 
 function sendMessage(message) {
   var lineNotifyEndPoint = "https://notify-api.line.me/api/notify";
-  var accessToken = " **token** ";
+  var accessToken = "buGsKtINy0LOmwVyxCuOwWcYgdbZO6W2dqdagwnLk7S";
 
   var formData = {
-    "message": message
+    "message": message,
+    "stickerPackageId": "446",
+    "stickerId": "2006"
   };
   
   var options = {
