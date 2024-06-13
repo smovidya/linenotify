@@ -53,12 +53,3 @@ function sendMessage(message) {
     Logger.log("Sending message completed.");
   }
 }
-
-function createTrigger() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet();
-  ScriptApp.newTrigger('getData')
-           .forSpreadsheet(sheet)
-           .onFormSubmit()
-           .create();
-
-}
